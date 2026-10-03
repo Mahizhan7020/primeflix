@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}My List — PrimeFlix{% endblock %}{% block content %}
+<main class="content list-page"><div class="shelf-title"><h1>My List</h1><span>Saved for later</span></div>
+{% if titles %}<div class="cards">{% for t in titles %}<article class="card"><a href="{{url_for('title_details',title_id=t.id)}}"><img src="{{t.poster}}" alt="{{t.title}}"></a><div class="card-info"><h3>{{t.title}}</h3><p>{{t.genre}} • {{t.year}}</p><span>⭐ {{t.rating}}</span></div></article>{% endfor %}</div>
+{% else %}<div class="empty"><h2>Your list is empty</h2><p>Add movies and shows to find them here.</p><a class="btn primary" href="{{url_for('home')}}">Browse titles</a></div>{% endif %}</main>{% endblock %}

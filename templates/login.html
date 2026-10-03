@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Sign In — PrimeFlix{% endblock %}{% block content %}
+<div class="auth-page"><div class="auth-card"><div class="brand big">prime<span>flix</span></div><h1>Sign in</h1><p class="muted">Sign in to continue watching and manage your list.</p>
+<form method="POST"><label>Email</label><input type="email" name="email" required><label>Password</label><input type="password" name="password" required><button class="btn primary full">Sign in</button></form>
+<p class="switch">New to PrimeFlix? <a href="{{ url_for('signup') }}">Create your account</a></p></div></div>{% endblock %}

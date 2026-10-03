@@ -1,0 +1,2 @@
+const box=document.getElementById("searchBox"),results=document.getElementById("searchResults");
+if(box){box.addEventListener("input",async()=>{let q=box.value.trim();if(q.length<2){results.innerHTML="";return}try{let r=await fetch("/api/search?q="+encodeURIComponent(q));let d=await r.json();results.innerHTML=d.map(x=>`<a href="/title/${x.id}"><b>${x.title}</b><small>${x.genre||""} • ${x.year||""}</small></a>`).join("")}catch(e){results.innerHTML=""}})}
