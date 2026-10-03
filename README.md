@@ -29,9 +29,9 @@ For MySQL, set `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, and `DB_PORT` in 
 
 ## Deploy
 
-The included `render.yaml` configures a public Render web service. Create a managed MySQL database with a provider that permits connections from Render, then set `DATABASE_URL` to its connection URL in the Render service environment. Render generates a strong `SECRET_KEY` from the blueprint. Keep `APP_ENV=production` so secure session cookies are enabled. The service exposes `/health` for a database-backed health check.
+The included `render.yaml` configures a free Render web-service instance. Create a MySQL database with a provider that permits external connections, then set `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, and `DB_PORT` in the Render service environment using that database's connection details. Render generates a strong `SECRET_KEY` from the blueprint. Keep `APP_ENV=production` so secure session cookies are enabled. The service exposes `/health` for a database-backed health check.
 
-The app is deployment-ready, but a public deployment requires a hosting account and a provisioned MySQL database/connection URL. No public URL is available until those external services are configured.
+Free web-service instances may sleep when idle and have an ephemeral filesystem, so keep the database on an external MySQL service rather than relying on local SQLite for deployed accounts and watchlists. A public deployment requires a hosting account and a provisioned MySQL database. No public URL is available until those external services are configured.
 
 ## Tests
 
